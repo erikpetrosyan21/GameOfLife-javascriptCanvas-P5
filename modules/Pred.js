@@ -4,7 +4,7 @@ var random = require("./random.js");
 module.exports = class Pred extends LiveForm {
     constructor(x, y) {
         super(x, y)
-        this.energy = 5;
+        this.energy = 8;
     }
 
     getNewCoordinates() {
@@ -25,24 +25,22 @@ module.exports = class Pred extends LiveForm {
     }
 
     movePred() {
+        if(weather != 4){
+            var emptyCells = this.chooseCell(0);
+            this.energy--;
+            if (emptyCells.length != 0) {
 
-        var emptyCells = this.chooseCell(0);
-        this.energy--;
-        if (emptyCells.length != 0) {
+                var randomCells = random(emptyCells);
+                var x = randomCells[0];
+                var y = randomCells[1];
 
-            var randomCells = random(emptyCells);
-            var x = randomCells[0];
-            var y = randomCells[1];
-
-
-
-            matrix[y][x] = 3;
-            matrix[this.y][this.x] = 0;
-            this.x = x;
-            this.y = y;
+                matrix[y][x] = 3;
+                matrix[this.y][this.x] = 0;
+                this.x = x;
+                this.y = y;
+            }
+            this.diePred();
         }
-        this.diePred();
-
     }
     eatPred() {
         var emptyCells = this.chooseCell(2);
@@ -58,7 +56,7 @@ module.exports = class Pred extends LiveForm {
             this.y = y;
 
             for (var i in grassEaterArr) {
-                this.energy++;
+                this.energy+=2;
                 if (this.x == grassEaterArr[i].x && this.y == grassEaterArr[i].y) {
                     grassEaterArr.splice(i, 1);
                     break;
@@ -70,8 +68,6 @@ module.exports = class Pred extends LiveForm {
 
     }
     diePred() {
-
-
         if (this.energy <= 0) {
             matrix[this.y][this.x] = 0;
 
@@ -99,7 +95,7 @@ module.exports = class Pred extends LiveForm {
                 predArr.push(newPred);
 
                 matrix[y][x] = 3;
-                this.energy = 5;
+                this.energy = 8;
             }
         }
 

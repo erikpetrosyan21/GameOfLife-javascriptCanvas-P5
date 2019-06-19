@@ -21,7 +21,15 @@ grassEaterhashiv = 0;
 predhashiv = 0;
 //! Setting global arrays  -- END
 
+weather = 1;
 
+setInterval(()=>{
+    weather++;
+    if(weather > 4){
+        weather = 1;
+    }
+
+},5000)
 
 
 //! Creating MATRIX -- START
@@ -58,7 +66,7 @@ function matrixGenerator(matrixSize, grass, grassEater, pred, boom, fireArr) {
         matrix[customY][customX] = 5;
     }
 }
-matrixGenerator(20, 10, 5, 15, 2);
+matrixGenerator(20, 10, 10, 20, 2);
 //! Creating MATRIX -- END
 
 
@@ -129,6 +137,7 @@ function game() {
         grassCounter: grassHashiv,
         eaterCounter: grassEaterhashiv,
         predCounter: predhashiv,
+        weather: weather,
     }
 
     //! Send data over the socket to clients who listens "data"

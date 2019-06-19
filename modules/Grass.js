@@ -28,7 +28,7 @@ module.exports = class Grass extends LiveForm {
         let emptyCells = this.chooseCell(0);
         let newCell = random(emptyCells);
 
-        if (newCell && this.multiply >= 2) {
+        if (newCell && this.multiply >= 2 && weather == 1) {
             grassHashiv++;
             let x = newCell[0];
             let y = newCell[1];
