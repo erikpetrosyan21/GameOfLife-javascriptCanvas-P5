@@ -23,7 +23,7 @@ module.exports = class GrassEater extends LiveForm {
     chooseCell(character) {
         this.getNewCoordinates();
         return super.chooseCell(character);
-    } 
+    }
     mul() {
         grassEaterhashiv++;
         let emptyCells = this.chooseCell(0);

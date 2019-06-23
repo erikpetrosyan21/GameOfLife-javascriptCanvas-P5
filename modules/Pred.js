@@ -25,7 +25,7 @@ module.exports = class Pred extends LiveForm {
     }
 
     movePred() {
-        if(weather != 4){
+        if (weather != 4) {
             var emptyCells = this.chooseCell(0);
             this.energy--;
             if (emptyCells.length != 0) {
@@ -56,7 +56,7 @@ module.exports = class Pred extends LiveForm {
             this.y = y;
 
             for (var i in grassEaterArr) {
-                this.energy+=2;
+                this.energy += 2;
                 if (this.x == grassEaterArr[i].x && this.y == grassEaterArr[i].y) {
                     grassEaterArr.splice(i, 1);
                     break;

@@ -23,13 +23,13 @@ predhashiv = 0;
 
 weather = 1;
 
-setInterval(()=>{
+setInterval(() => {
     weather++;
-    if(weather > 4){
+    if (weather > 4) {
         weather = 1;
     }
 
-},5000)
+}, 5000)
 
 
 //! Creating MATRIX -- START
@@ -66,7 +66,7 @@ function matrixGenerator(matrixSize, grass, grassEater, pred, boom, fireArr) {
         matrix[customY][customX] = 5;
     }
 }
-matrixGenerator(20, 10, 10, 20, 2);
+matrixGenerator(20, 10, 15, 10, 2);
 //! Creating MATRIX -- END
 
 
@@ -92,16 +92,15 @@ function creatingObjects() {
                 var grassEater = new GrassEater(x, y);
                 grassEaterArr.push(grassEater);
                 grassEaterhashiv++;
-            }else if (matrix[y][x] == 1) {
+            } else if (matrix[y][x] == 1) {
                 var grass = new Grass(x, y);
                 grassArr.push(grass);
                 grassHashiv++;
-            }else if (matrix[y][x] == 3) {
+            } else if (matrix[y][x] == 3) {
                 var predobj = new Pred(x, y);
                 predArr.push(predobj);
                 predhashiv++;
-                console.log(predhashiv);
-            }else if (matrix[y][x] == 4) {
+            } else if (matrix[y][x] == 4) {
                 var boom = new Boom(x, y);
                 boomArr.push(boom);
             }
